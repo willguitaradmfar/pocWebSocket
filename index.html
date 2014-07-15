@@ -15,18 +15,15 @@
 
 	<script type="text/javascript">
 
-	var exampleSocket = new WebSocket("ws://192.168.122.196:6001", "protocolOne");
+	var exampleSocket = new WebSocket("ws://192.168.122.196:6001");
 
 	exampleSocket.onopen = function (event) {
 	  console.log('** onopen');
+	  exampleSocket.send("Here's some text that the server is urgently awaiting!");
 	};
 
-
-	exampleSocket.send("Here's some text that the server is urgently awaiting!");
-
-
 	exampleSocket.onmessage = function (event) {
-	  console.log(event.data);
+	  console.log(event);
 	}
 
 
